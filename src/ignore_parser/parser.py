@@ -9,6 +9,9 @@ def parse(path):
     try:
         with open(path, 'r+') as f:
             for line in f.readlines():
+                if line[-1] == '\n':
+                    line = line[:-1]
+
                 if pos := line.find('#') != -1:
                     line = line[: pos].strip()
 
